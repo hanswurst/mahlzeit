@@ -27,8 +27,28 @@
     <%= f.label 'Nimmt am Essen teil' %><br />
     <%= f.check_box :getsMeals %>
   </div>
+  <div class="field">
+    <%= f.label 'Ist Gast' %><br />
+    <%= f.check_box :guest %>
+  </div>
+  <div class="field">
+    <%= f.label 'Anzahl Kinder 1-6 Jahre' %><br />
+    <%= f.text_field :number_of_children_level_1 %>
+  </div>
+  <div class="field">
+    <%= f.label 'Anzahl Kinder 7-13 Jahre' %><br />
+    <%= f.text_field :number_of_children_level_2 %>
+  </div>
+  <div class="field">
+    <%= f.label 'Anzahl Kinder 14-17 Jahre' %><br />
+    <%= f.text_field :number_of_children_level_3 %>
+  </div>  
+  <div class="field">
+    <%= f.label 'Anzahl Mahlzeiten Erwachsene' %><br />
+    <%= f.text_field :default_number_of_meals_adults %>
+  </div>
   <div>
-   <%= f.label 'Gültig bis' %><br />
+   <%= f.label 'Angaben gültig bis' %><br />
    <%= f.date_select(:valid_to, :order => [:day,:month,:year]) %>
   </div>
   <div class="actions">

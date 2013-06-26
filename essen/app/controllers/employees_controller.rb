@@ -23,6 +23,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.new
 
     respond_to do |format|
+      @employee.default_number_of_meals_adults ||= generate_default_number_of_meals_adults(1)
       format.html # new.html.erb
       format.json { render json: @employee }
     end

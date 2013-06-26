@@ -8,7 +8,11 @@ de:
       employee:
         id: "Identifikationsnummer"
         firstname: "Vorname"
-        lastname: "Nachname"	
+        lastname: "Nachname"
+        number_of_children_level_1: "Das Feld 'Anzahl Kinder von 1-6 Jahren'"
+        number_of_children_level_2: "Das Feld 'Anzahl Kinder von 7-13 Jahren'"
+        number_of_children_level_3: "Das Feld 'Anzahl Kinder von 14-17 Jahren'"
+        default_number_of_meals_adults: "Das Feld 'Anzahl Mahlzeiten Erwachsene'"	
     errors:
       models:
         employee:
@@ -20,7 +24,18 @@ de:
               blank: "darf nicht leer sein"
             lastname:
               blank: "darf nicht leer sein"
+            number_of_children_level_1:
+              not_a_number: "muss eine Zahl sein"
+              greater_than_or_equal_to: "muss größer oder gleich 0 sein"
+            number_of_children_level_2:
+              not_a_number: "muss eine Zahl sein"
+              greater_than_or_equal_to: "muss größer oder gleich 0 sein"
+            number_of_children_level_3:
+              not_a_number: "muss eine Zahl sein"
+              greater_than_or_equal_to: "muss größer oder gleich 0 sein"
+            default_number_of_meals_adults: 
+              not_a_number: "muss eine Zahl sein"
+              greater_than_or_equal_to: "muss größer oder gleich 0 sein"
   date:
     day_names: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag Sonntag]
-    month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]       
-
+    month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]

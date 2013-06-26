@@ -11,15 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619155023) do
+ActiveRecord::Schema.define(:version => 20130626140747) do
 
   create_table "employees", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.boolean  "getsMeals"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.datetime "valid_to"
+    t.boolean  "guest"
+    t.integer  "number_of_children_level_1"
+    t.integer  "number_of_children_level_2"
+    t.integer  "number_of_children_level_3"
+    t.integer  "default_number_of_meals_adults"
   end
 
 end
