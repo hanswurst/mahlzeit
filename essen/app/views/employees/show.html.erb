@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Identifikationsnumer:</b>
+  <%= @employee.id %>
+</p>
+
+<p>
+  <b>Vorname:</b>
+  <%= @employee.firstname %>
+</p>
+
+<p>
+  <b>Nachname:</b>
+  <%= @employee.lastname %>
+</p>
+
+<p>
+  <b>Nimmt am Essen Teil:</b>
+  <% if @employee.getsMeals %>
+    ja
+  <% else %>nein
+  <% end%>  
+</p>
+
+
+<%= link_to 'Bearbeiten', edit_employee_path(@employee) %> |
+<%= link_to 'Zurück', employees_path %>

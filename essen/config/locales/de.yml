@@ -1,0 +1,26 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+
+de:
+  activerecord:
+    attributes:
+      employee:
+        id: "Identifikationsnummer"
+        firstname: "Vorname"
+        lastname: "Nachname"	
+    errors:
+      models:
+        employee:
+          attributes:
+            id:
+              blank: "darf nicht leer sein"
+              taken: "wird bereits verwendet"
+            firstname:
+              blank: "darf nicht leer sein"
+            lastname:
+              blank: "darf nicht leer sein"
+  date:
+    day_names: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag Sonntag]
+    month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]       
+

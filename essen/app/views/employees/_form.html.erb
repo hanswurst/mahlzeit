@@ -1,0 +1,37 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>Folgende Fehler sind aufgetreten:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Identifikationsnummer %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :Vorname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :Nachname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label 'Nimmt am Essen teil' %><br />
+    <%= f.check_box :getsMeals %>
+  </div>
+  <div>
+   <%= f.label 'Gültig bis' %><br />
+   <%= f.date_select(:valid_to, :order => [:day,:month,:year]) %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Daten übernehmen'%>
+  </div>
+<% end %>

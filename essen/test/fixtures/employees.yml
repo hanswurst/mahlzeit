@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: MyString
+  firstname: MyString
+  lastname: MyString
+  getsMeals: false
+
+two:
+  id: MyString
+  firstname: MyString
+  lastname: MyString
+  getsMeals: false
