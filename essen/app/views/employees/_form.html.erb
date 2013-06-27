@@ -12,46 +12,54 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Identifikationsnummer %><br />
+    <%= f.label :id %><br />
     <%= f.text_field :id %>
   </div>
   <div class="field">
-    <%= f.label :Vorname %><br />
+    <%= f.label :firstname %><br />
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :Nachname %><br />
+    <%= f.label :lastname %><br />
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label 'Nimmt am Essen teil' %><br />
+    <%= f.label :getsMeals %><br />
     <%= f.check_box :getsMeals %>
   </div>
   <div class="field">
-    <%= f.label 'Ist Gast' %><br />
+    <%= f.label :breakfast %><br />
+    <%= f.check_box :breakfast %>
+  </div>
+  <div class="field">
+    <%= f.label :supper %><br />
+    <%= f.check_box :supper %>
+  </div>
+  <div class="field">
+    <%= f.label :guest %><br />
     <%= f.check_box :guest %>
   </div>
   <div class="field">
-    <%= f.label 'Anzahl Kinder 1-6 Jahre' %><br />
+    <%= f.label :number_of_children_level_1 %><br />
     <%= f.text_field :number_of_children_level_1 %>
   </div>
   <div class="field">
-    <%= f.label 'Anzahl Kinder 7-13 Jahre' %><br />
+    <%= f.label :number_of_children_level_2 %><br />
     <%= f.text_field :number_of_children_level_2 %>
   </div>
   <div class="field">
-    <%= f.label 'Anzahl Kinder 14-17 Jahre' %><br />
+    <%= f.label :number_of_children_level_3 %><br />
     <%= f.text_field :number_of_children_level_3 %>
   </div>  
   <div class="field">
-    <%= f.label 'Anzahl Mahlzeiten Erwachsene' %><br />
+    <%= f.label :default_number_of_meals_adults %><br />
     <%= f.text_field :default_number_of_meals_adults %>
   </div>
   <div>
-   <%= f.label 'Angaben gültig bis' %><br />
+   <%= f.label :valid_to %><br />
    <%= f.date_select(:valid_to, :order => [:day,:month,:year]) %>
   </div>
   <div class="actions">
-    <%= f.submit 'Daten übernehmen'%>
+    <%= f.submit t('employee.submit')%>
   </div>
 <% end %>

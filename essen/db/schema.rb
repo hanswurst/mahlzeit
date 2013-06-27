@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626140747) do
+ActiveRecord::Schema.define(:version => 20130627075127) do
 
   create_table "employees", :force => true do |t|
     t.string   "firstname"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20130626140747) do
     t.integer  "number_of_children_level_2"
     t.integer  "number_of_children_level_3"
     t.integer  "default_number_of_meals_adults"
+    t.boolean  "breakfast"
+    t.boolean  "supper"
   end
 
 end

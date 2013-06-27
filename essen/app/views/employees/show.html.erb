@@ -1,52 +1,53 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Identifikationsnumer:</b>
+  <b><%=t 'helpers.label.employee.id' %></b>
   <%= @employee.id %>
 </p>
 
 <p>
-  <b>Vorname:</b>
+  <b><%=t 'helpers.label.employee.firstname' %></b>
   <%= @employee.firstname %>
 </p>
 
 <p>
-  <b>Nachname:</b>
+  <b><%=t 'helpers.label.employee.lastname' %></b>
   <%= @employee.lastname %>
 </p>
-
 <p>
-  <b>Nimmt am Essen Teil:</b>
-  <% if @employee.getsMeals %>
-    ja
-  <% else %>nein
-  <% end%>  
+  <b><%=t 'helpers.label.employee.getsMeals' %></b>
+  <%= @employee.boolean_as_translated_string(@employee.getsMeals) %>
 </p>
 <p>
-  <b>Ist Gast:</b>
-  <% if @employee.guest %>
-    ja
-  <% else %>nein
-  <% end%>
+  <b><%=t 'helpers.label.employee.breakfast' %></b>
+  <%= @employee.boolean_as_translated_string(@employee.breakfast) %>
 </p>
 <p>
-  <b>Anzahl Kinder 1-6:</b>
+  <b><%=t 'helpers.label.employee.supper' %></b>
+  <%= @employee.boolean_as_translated_string(@employee.supper) %>
+</p>
+<p>
+  <b><%=t 'helpers.label.employee.guest'%></b>
+  <%= @employee.boolean_as_translated_string(@employee.guest) %>
+</p>
+<p>
+  <b><%=t 'helpers.label.employee.number_of_children_level_1' %></b>
   <%= @employee.number_of_children_level_1 %>
 </p>
 <p>
-  <b>Anzahl Kinder 7-13:</b>
+  <b><%=t 'helpers.label.employee.number_of_children_level_2' %></b>
   <%= @employee.number_of_children_level_2 %>
 </p>
 <p>
-  <b>Anzahl Kinder 14-17:</b>
+  <b><%=t 'helpers.label.employee.number_of_children_level_3' %></b>
   <%= @employee.number_of_children_level_3 %>
 </p>
 <p>
-  <b>Anzahl Essen Erwachsene</b>
+  <b><%=t 'helpers.label.employee.default_number_of_meals_adults' %></b>
   <%= @employee.default_number_of_meals_adults %>
 </p>
 <p>
-  <b>Angaben gültig bis:</b>
+  <b><%=t 'helpers.label.employee.valid_to'%></b>
   <%= @employee.valid_to.strftime("%d.%m.%Y") %>
 </p>
 

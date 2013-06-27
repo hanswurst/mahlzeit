@@ -39,3 +39,31 @@ de:
   date:
     day_names: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag Sonntag]
     month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+  helpers:
+    label:
+      employee:
+        id: "Identifikationsnummer"
+        firstname: "Vorname"
+        lastname: "Nachname"
+        getsMeals: "Nimmt am Essen teil"
+        guest: "Ist Gast"
+        number_of_children_level_1: "Anzahl Kinder 1-6" 
+        number_of_children_level_2: "Anzahl Kinder 7-13" 
+        number_of_children_level_3: "Anzahl Kinder 14-17"
+        default_number_of_meals_adults: "Anzahl Mahlzeiten Erwachsene"
+        breakfast: "Frühstück mit berechnen"
+        supper: "Abendessen mit berechnen"
+        valid_to: "Angaben gültig bis"
+  misc:
+    yes: "ja"
+    no: "nein"
+    show: "Anzeigen"
+    edit: "Bearbeiten"
+    delete: "Löschen"
+    back: "Zurück" 
+  employee:
+    list: "Liste der Mitarbeiter"
+    delete: "Mitarbeiter wirklich löschen?"
+    edit: "Mitarbeiter bearbeiten"
+    create: "Neuen Mitarbeiter anlegen"
+    submit: "Daten übernehmen"  

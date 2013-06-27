@@ -1,6 +1,6 @@
-<h1>Mitarbeiter bearbeiten</h1>
+<h1><%=t 'employee.edit' %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Anzeigen', @employee %> |
-<%= link_to 'Zurück', employees_path %>
+<%= link_to t('misc.show'), @employee %> |
+<%= link_to t('misc.back'), employees_path %>
