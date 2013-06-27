@@ -1,4 +1,6 @@
 class Employee < ActiveRecord::Base
+  
+  has_many :foods
 
   after_initialize :init
 
