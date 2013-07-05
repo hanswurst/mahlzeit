@@ -1,4 +1,3 @@
-# encoding: utf-8
 class EmployeesController < ApplicationController
   
   def index
@@ -38,7 +37,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Der Mitarbeiter wurde erfolgreich angelegt.' }
+        format.html { redirect_to @employee, notice: I18n.t('employee.success.new') }
         format.json { render json: @employee, status: :created, location: @employee }
       else
         format.html { render action: "new" }
@@ -52,7 +51,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
-        format.html { redirect_to @employee, notice: 'Der Mitarbeiter wurde erfolgreich geändert.' }
+        format.html { redirect_to @employee, notice: I18n.t('employee.success.edit') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

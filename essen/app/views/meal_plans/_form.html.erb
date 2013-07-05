@@ -1,0 +1,27 @@
+<%= form_for(@meal_plan) do |f| %>
+  <% if @meal_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2>Folgende Fehler sind aufgetreten:</h2>
+
+      <ul>
+      <% @meal_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :valid_from %><br />
+    <%= f.date_select(:valid_from, :order => [:day,:month,:year]) %>
+  </div>
+
+  <div>
+    <%= f.label :valid_to %><br />
+    <%= f.date_select(:valid_to, :order => [:day,:month,:year]) %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('meal_plan.submit')%>
+  </div>
+
+
+<% end %>

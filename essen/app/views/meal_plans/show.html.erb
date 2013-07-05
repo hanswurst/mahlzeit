@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%=t 'helpers.label.meal_plan.valid_from' %></b>
+  <%= @meal_plan.valid_from.strftime("%d.%m.%Y") %>
+</p>
+
+<p>
+  <b><%=t 'helpers.label.meal_plan.valid_to' %></b>
+  <%= @meal_plan.valid_to.strftime("%d.%m.%Y") %>
+</p>
+
+<table>
+  <% @meal_plan.employees.each do |employee| %>
+    <tr>
+      <td><%= employee.firstname %></td>
+      <td><%= employee.lastname%></td>
+      <% for food in employee.foods %>
+        <td><%= food.number_of_breakfasts%> | <%= food.number_of_lunches%> | <%= food.number_of_suppers%></td>
+      <% end %>
+      <td><%= link_to t('misc.show'), employee %></td>
+    </tr>
+  <% end %>
+</table>
+

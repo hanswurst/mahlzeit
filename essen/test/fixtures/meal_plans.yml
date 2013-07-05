@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  valid_from: 2013-06-28 13:04:18
+  valid_to: 2013-06-28 13:04:18
+
+two:
+  valid_from: 2013-06-28 13:04:18
+  valid_to: 2013-06-28 13:04:18

@@ -12,7 +12,10 @@ de:
         number_of_children_level_1: "Das Feld 'Anzahl Kinder von 1-6 Jahren'"
         number_of_children_level_2: "Das Feld 'Anzahl Kinder von 7-13 Jahren'"
         number_of_children_level_3: "Das Feld 'Anzahl Kinder von 14-17 Jahren'"
-        default_number_of_meals_adults: "Das Feld 'Anzahl Mahlzeiten Erwachsene'"	
+        default_number_of_meals_adults: "Das Feld 'Anzahl Mahlzeiten Erwachsene'"
+      meal_plan:
+        valid_from: "Gültig von:"	
+        valid_to: "Gültig bis:"	
     errors:
       models:
         employee:
@@ -36,6 +39,13 @@ de:
             default_number_of_meals_adults: 
               not_a_number: "muss eine Zahl sein"
               greater_than_or_equal_to: "muss größer oder gleich 0 sein"
+        meal_plan:
+          attributes:
+            valid_from: 
+              after: "Das Datum muss mindestens das Datum des morgigen Tages sein"
+            valid_to:
+              after: "Das Datum muss mindestens das Datum des morgigen Tages sein"
+             
   date:
     day_names: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag Sonntag]
     month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
@@ -54,16 +64,35 @@ de:
         breakfast: "Frühstück mit berechnen"
         supper: "Abendessen mit berechnen"
         valid_to: "Angaben gültig bis"
+      meal_plan:
+        valid_from: "Gültig von"
+        valid_to: "Gültig bis:"	
   misc:
     yes: "ja"
     no: "nein"
+    to: "bis"
     show: "Anzeigen"
     edit: "Bearbeiten"
     delete: "Löschen"
     back: "Zurück" 
+    valid_from: "Gültig ab"
+    valid_to: "Gültig bis"
+    errors:
+      info: "Folgede Fehler sind aufgetreten:"
   employee:
     list: "Liste der Mitarbeiter"
     delete: "Mitarbeiter wirklich löschen?"
     edit: "Mitarbeiter bearbeiten"
     create: "Neuen Mitarbeiter anlegen"
-    submit: "Daten übernehmen"  
+    submit: "Daten übernehmen" 
+    success:
+      new: "Der Mitarbeiter wurde erfolgreich angelegt"
+      edit: "Der Mitarbeiter wurde erfolgreich geändert"
+  meal_plan:
+    list: "Liste der Essenspläne" 
+    create: "Essensplan für neue Woche erstellen"
+    info:
+      range: "Essensplan für die Zeit von"
+    submit: "Essensplan erstellen"
+    success:
+      new: "Der Essensplan wurde erfolgreich angelegt" 

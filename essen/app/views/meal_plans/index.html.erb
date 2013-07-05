@@ -1,0 +1,11 @@
+<h1><%=t 'meal_plan.list'%></h1>
+
+<table>
+
+<% @meal_plans.each do |meal_plan| %>
+  <tr>
+    <td><%=t 'meal_plan.info.range'%> <b><%= meal_plan.valid_from.strftime("%d.%m.%Y") %></b> <%=t 'misc.to'%> <b><%= meal_plan.valid_to.strftime("%d.%m.%Y")%></b></td>
+    <td><%= link_to t('misc.show'), meal_plan %></td>
+  </tr>
+<% end %>
+</table>
