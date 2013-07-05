@@ -6,4 +6,11 @@ class MealPlan < ActiveRecord::Base
 
   validates :valid_from, :presence => true, :date => {:after => Proc.new {Time.now}} 
   validates :valid_to, :presence => true, :date => {:after => Proc.new {Time.now}}
+
+  before_destroy :check_valid_from_date
+
+  def check_valid_from_date
+    errors.add(:base, "Plan kann nicht geloescht werden da Datum 'Gueltig ab' nicht in der Zukunft liegt") unless DateTime.now.to_date < valid_from
+    errors.blank?
+  end
 end

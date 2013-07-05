@@ -8,6 +8,15 @@ class MealPlansController < ApplicationController
     end
   end
 
+  def index_delete
+    @meal_plans = MealPlan.all
+    @date = DateTime.now.to_date
+
+    respond_to do |format|
+      format.html # index_delete.html.erb
+    end
+  end
+
   def new
     @meal_plan = MealPlan.new
 
@@ -43,7 +52,20 @@ class MealPlansController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @meal_plan = MealPlan.find(params[:id])
+    @meal_plan.employees.each do |employee|
+      @foods = Food.where("employee_id = ? AND date >= ? AND date <= ?", employee, @meal_plan.valid_from, @meal_plan.valid_to)
+      @foods.each do |food|
+        food.destroy
+      end 
+    end
+    @meal_plan.destroy
+
+    respond_to do |format|
+      format.html {redirect_to meal_plans_url}
+    end
+    
   end
 
   private

@@ -89,7 +89,8 @@ de:
       new: "Der Mitarbeiter wurde erfolgreich angelegt"
       edit: "Der Mitarbeiter wurde erfolgreich geändert"
   meal_plan:
-    list: "Liste der Essenspläne" 
+    list: "Liste der Essenspläne"
+    delete: "Plan wirklich löschen?" 
     create: "Essensplan für neue Woche erstellen"
     info:
       range: "Essensplan für die Zeit von"

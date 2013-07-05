@@ -1,6 +1,6 @@
 Essen::Application.routes.draw do
   
-#  get "meal_plans" => "meal_plans#index"
+  get "meal_plans/index_delete" => "meal_plans#index_delete"
 #  get "meal_plans/new"
 #  get "meal_plans/show"
 #  get "meal_plans/delete"
