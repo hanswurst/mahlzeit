@@ -43,9 +43,13 @@ de:
           attributes:
             valid_from: 
               after: "Das Datum muss mindestens das Datum des morgigen Tages sein"
+              not_monday: "Das Datum muss ein Montag sein"
             valid_to:
               after: "Das Datum muss mindestens das Datum des morgigen Tages sein"
-             
+              not_sunday: "Das Datum muss ein Sonntag sein"
+              only_one_week: "Das Zeifenster für den Plan darf nur eine Woche umfassen"
+            base:
+              date_range_violation: "Es exestiert bereits mindestens ein Plan mit dem es Datumsüberschneidungen gibt. Bitte wählen Sie einen anderen Datumsbereich oder löschen Sie die anderen Pläne"               
   date:
     day_names: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag Sonntag]
     month_names: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]

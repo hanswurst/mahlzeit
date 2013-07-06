@@ -30,10 +30,11 @@ class MealPlansController < ApplicationController
 
     respond_to do |format|
       @meal_plan.employees = Employee.all.select(&:getsMeals?)
-      @meal_plan.employees.each do |employee|
-        create_foods_for_employee(employee)
-      end
       if @meal_plan.save
+	@meal_plan.employees.each do |employee|
+          create_foods_for_employee(employee)
+        end
+
         format.html { redirect_to @meal_plan, notice: I18n.t('meal_plan.success.new') }
         format.json { render json: @meal_plan, status: :created, location: @meal_plan }
       else
