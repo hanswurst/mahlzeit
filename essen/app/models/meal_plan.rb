@@ -1,6 +1,6 @@
 class MealPlan < ActiveRecord::Base
 
-  has_and_belongs_to_many :employees
+  has_many :meal_plan_entries
 
   attr_accessible :valid_from, :valid_to
 
@@ -13,6 +13,14 @@ class MealPlan < ActiveRecord::Base
   def check_valid_from_date
     errors.add(:base, "Plan kann nicht geloescht werden da Datum 'Gueltig ab' nicht in der Zukunft liegt") unless DateTime.now.to_date < valid_from
     errors.blank?
+  end
+
+  def meal_plan_entries_in_date_range_for(employee)
+    MealPlanEntry.where("employee_id = ? AND date >= ? AND date <= ?", employee, self.valid_from, self.valid_to)
+  end
+
+  def meal_plan_entries_in_date_range
+    MealPlanEntry.where("date >= ? AND date <= ?", self.valid_from, self.valid_to).select("distinct employee_id")
   end
 
   private

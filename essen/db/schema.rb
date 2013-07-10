@@ -11,40 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701142432) do
+ActiveRecord::Schema.define(:version => 20130709184331) do
 
   create_table "employees", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.boolean  "getsMeals"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.date     "valid_to"
     t.boolean  "guest"
     t.integer  "number_of_children_level_1"
     t.integer  "number_of_children_level_2"
     t.integer  "number_of_children_level_3"
     t.integer  "default_number_of_meals_adults"
+    t.date     "valid_to"
     t.boolean  "breakfast"
     t.boolean  "supper"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
-  create_table "employees_meal_plans", :id => false, :force => true do |t|
-    t.integer "employee_id"
-    t.integer "meal_plan_id"
-  end
-
-  create_table "foods", :force => true do |t|
+  create_table "meal_plan_entries", :force => true do |t|
+    t.integer  "employee_id"
+    t.string   "description"
     t.date     "date"
     t.integer  "number_of_breakfasts"
     t.integer  "number_of_lunches"
     t.integer  "number_of_suppers"
-    t.integer  "employee_id"
+    t.integer  "meal_plan_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end
 
-  add_index "foods", ["employee_id"], :name => "index_foods_on_employee_id"
+  add_index "meal_plan_entries", ["employee_id"], :name => "index_meal_plan_entries_on_employee_id"
+  add_index "meal_plan_entries", ["meal_plan_id"], :name => "index_meal_plan_entries_on_meal_plan_id"
 
   create_table "meal_plans", :force => true do |t|
     t.date     "valid_from"

@@ -1,0 +1,32 @@
+<h1><%=t 'meal_plan_entry.info.foods_from'%> <%= @meal_plan_entry.date %></h1>
+<p><%= @employee.firstname %> <%= @employee.lastname%></p>
+<br/>
+<%= form_for(@meal_plan_entry) do |f|%>
+  <% if @employee.breakfast%>
+    <div class="field">
+      <%= f.label :number_of_breakfasts %>
+      <%= f.text_field :number_of_breakfasts%>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :number_of_lunches %>
+    <%= f.text_field :number_of_lunches%>
+  </div>
+  <% if @employee.supper%>
+    <div class="field">
+      <%= f.label :number_of_suppers %>
+      <%= f.text_field :number_of_suppers%>
+    </div>
+  <% end %>
+  <br/>
+  <div class="actions">
+    <%= f.submit t('meal_plan_entry.submit')%>
+  </div>
+<% end %>
+#########
+<br/>
+<%= @referer %>
+<br/>
+#########
+<br />
+<%= link_to(t('misc.back'), "#{@referer}") %>

@@ -1,12 +1,14 @@
 Essen::Application.routes.draw do
   
+#  get "foods/:id" => "foods#show", :as => :food
+
   get "meal_plans/index_delete" => "meal_plans#index_delete"
 #  get "meal_plans/new"
 #  get "meal_plans/show"
 #  get "meal_plans/delete"
 
   resources :employees
-
+  resources :meal_plan_entries
   resources :meal_plans
 
   # The priority is based upon order of creation:

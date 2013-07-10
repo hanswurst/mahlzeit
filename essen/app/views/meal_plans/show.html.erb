@@ -11,14 +11,17 @@
 </p>
 
 <table>
-  <% @meal_plan.employees.each do |employee| %>
+  <% @employees.each do |employee| %>
     <tr>
       <td><%= employee.firstname %></td>
       <td><%= employee.lastname%></td>
-      <% for food in employee.foods %>
-        <td><%= food.number_of_breakfasts%> | <%= food.number_of_lunches%> | <%= food.number_of_suppers%></td>
+      <% for meal_plan_entry in @meal_plan.meal_plan_entries_in_date_range_for(employee) %>
+         <td>
+           <%= link_to(edit_meal_plan_entry_path(meal_plan_entry)) do %> 
+             <%= meal_plan_entry.number_of_breakfasts%> | <%= meal_plan_entry.number_of_lunches%> | <%= meal_plan_entry.number_of_suppers%>
+           <% end %>
+         </td>
       <% end %>
-      <td><%= link_to t('misc.show'), employee %></td>
     </tr>
   <% end %>
 </table>

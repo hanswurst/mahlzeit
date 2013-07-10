@@ -15,7 +15,11 @@ de:
         default_number_of_meals_adults: "Das Feld 'Anzahl Mahlzeiten Erwachsene'"
       meal_plan:
         valid_from: "Gültig von:"	
-        valid_to: "Gültig bis:"	
+        valid_to: "Gültig bis:"
+      meal_plan_entry:
+        number_of_breakfasts: "Anzahl Frühstück"
+        number_of_lunches: "Anzahl Mittagessen"
+        number_of_suppers: "Anzahl Abendessen"	
     errors:
       models:
         employee:
@@ -100,4 +104,8 @@ de:
       range: "Essensplan für die Zeit von"
     submit: "Essensplan erstellen"
     success:
-      new: "Der Essensplan wurde erfolgreich angelegt" 
+      new: "Der Essensplan wurde erfolgreich angelegt"
+  meal_plan_entry:
+    submit: "Änderungen übernehmen"
+    info:
+      foods_from: "Mahlzeiten vom" 

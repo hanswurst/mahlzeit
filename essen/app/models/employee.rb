@@ -1,10 +1,7 @@
 class Employee < ActiveRecord::Base
-  
-  has_many :foods
-  has_and_belongs_to_many :meal_plans
 
-  accepts_nested_attributes_for :foods
-  after_initialize :init
+  has_many :meal_plan_entries
+  after_initialize :init  
 
   attr_accessible :id, :firstname, :lastname, :getsMeals, :valid_to, :guest, :number_of_children_level_1, :number_of_children_level_2, :number_of_children_level_3, :default_number_of_meals_adults, :breakfast, :supper
   validates :id, :presence => true, :uniqueness => true	

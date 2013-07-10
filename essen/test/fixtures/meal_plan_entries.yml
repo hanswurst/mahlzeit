@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employee: 
+  description: MyString
+  meal_plan: 
+
+two:
+  employee: 
+  description: MyString
+  meal_plan: 
