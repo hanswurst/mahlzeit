@@ -107,5 +107,14 @@ de:
       new: "Der Essensplan wurde erfolgreich angelegt"
   meal_plan_entry:
     submit: "Änderungen übernehmen"
+    success:
+      edit: "Der Eintrag wurde erfolgreich aktualisiert"
     info:
-      foods_from: "Mahlzeiten vom" 
+      foods_from: "Mahlzeiten vom"
+  reports:
+    invoice:
+      create_info: "Neue Auswertung erstellen"
+      create: "Auswertung anzeigen"
+    cooking:
+      create_info: "Neue Tagesübersicht erstellen"
+      create: "Übersicht anzeigen"

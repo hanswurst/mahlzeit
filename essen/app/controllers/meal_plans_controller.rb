@@ -1,7 +1,7 @@
 class MealPlansController < ApplicationController
 
   def index
-    @meal_plans = MealPlan.all
+    @meal_plans = MealPlan.order("valid_from ASC").all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -9,7 +9,7 @@ class MealPlansController < ApplicationController
   end
 
   def index_delete
-    @meal_plans = MealPlan.all
+    @meal_plans = MealPlan.order("valid_from ASC").all
     @date = DateTime.now.to_date
 
     respond_to do |format|
@@ -43,8 +43,10 @@ class MealPlansController < ApplicationController
 
   def show
     @meal_plan = MealPlan.find(params[:id])	
-    meal_plan_entries = @meal_plan.meal_plan_entries_in_date_range
+    meal_plan_entries = @meal_plan.employees_for_meal_plan_entries_in_date_range
     @employees = Employee.find(meal_plan_entries.map(&:employee_id))
+    @date = DateTime.now.to_date
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @employee }
@@ -67,9 +69,9 @@ class MealPlansController < ApplicationController
     @employees.each do |employee|
       (@meal_plan.valid_from).upto(@meal_plan.valid_to) { |date|
         meal_plan_entry = MealPlanEntry.new
-        meal_plan_entry.number_of_breakfasts = number_of_breakfasts(employee)
-        meal_plan_entry.number_of_lunches = employee.default_number_of_meals_adults
-        meal_plan_entry.number_of_suppers = number_of_suppers(employee)
+        meal_plan_entry.number_of_breakfasts = number_of_breakfasts(employee, date)
+        meal_plan_entry.number_of_lunches = number_of_lunches(employee, date)
+        meal_plan_entry.number_of_suppers = number_of_suppers(employee, date)
         meal_plan_entry.date = date
         meal_plan_entry.employee = employee
         meal_plan_entry.meal_plan = @meal_plan
@@ -78,17 +80,28 @@ class MealPlansController < ApplicationController
     end  
   end
 
-  def number_of_breakfasts(employee)
-    if employee.breakfast 
+  def number_of_breakfasts(employee, date)
+    if employee.breakfast && is_not_weekend(date) 
       employee.default_number_of_meals_adults
     else 0
     end
   end
 
-  def number_of_suppers(employee)
-    if employee.supper 
-      employee.default_number_of_meals_adultss
+  def number_of_lunches(employee, date)
+    if is_not_weekend(date)
+      employee.default_number_of_meals_adults
     else 0
     end
+  end
+
+  def number_of_suppers(employee, date)
+    if employee.supper && is_not_weekend(date)
+      employee.default_number_of_meals_adults
+    else 0
+    end
+  end
+
+  def is_not_weekend(date)
+    !date.saturday? && !date.sunday?
   end
 end

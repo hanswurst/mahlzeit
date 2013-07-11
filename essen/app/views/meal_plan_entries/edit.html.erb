@@ -22,11 +22,6 @@
   <div class="actions">
     <%= f.submit t('meal_plan_entry.submit')%>
   </div>
+  <%= hidden_field_tag :referer, "foo", :value => @referer, :id => "id1" %>
 <% end %>
-#########
-<br/>
-<%= @referer %>
-<br/>
-#########
-<br />
 <%= link_to(t('misc.back'), "#{@referer}") %>

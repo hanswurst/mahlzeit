@@ -17,7 +17,11 @@
       <td><%= employee.lastname%></td>
       <% for meal_plan_entry in @meal_plan.meal_plan_entries_in_date_range_for(employee) %>
          <td>
-           <%= link_to(edit_meal_plan_entry_path(meal_plan_entry)) do %> 
+           <% if @date <= meal_plan_entry.date%> 
+             <%= link_to(edit_meal_plan_entry_path(meal_plan_entry)) do %> 
+               <%= meal_plan_entry.number_of_breakfasts%> | <%= meal_plan_entry.number_of_lunches%> | <%= meal_plan_entry.number_of_suppers%>
+             <% end %>
+           <% else %>
              <%= meal_plan_entry.number_of_breakfasts%> | <%= meal_plan_entry.number_of_lunches%> | <%= meal_plan_entry.number_of_suppers%>
            <% end %>
          </td>

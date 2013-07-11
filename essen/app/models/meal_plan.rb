@@ -1,6 +1,6 @@
 class MealPlan < ActiveRecord::Base
 
-  has_many :meal_plan_entries
+  has_many :meal_plan_entries, :dependent => :destroy
 
   attr_accessible :valid_from, :valid_to
 
@@ -19,7 +19,7 @@ class MealPlan < ActiveRecord::Base
     MealPlanEntry.where("employee_id = ? AND date >= ? AND date <= ?", employee, self.valid_from, self.valid_to)
   end
 
-  def meal_plan_entries_in_date_range
+  def employees_for_meal_plan_entries_in_date_range
     MealPlanEntry.where("date >= ? AND date <= ?", self.valid_from, self.valid_to).select("distinct employee_id")
   end
 
