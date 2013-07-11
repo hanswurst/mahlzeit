@@ -74,7 +74,9 @@ de:
         valid_to: "Angaben gültig bis"
       meal_plan:
         valid_from: "Gültig von"
-        valid_to: "Gültig bis:"	
+        valid_to: "Gültig bis:"
+      invoice:
+        date: "Rechnungsmonat"  
   misc:
     yes: "ja"
     no: "nein"
@@ -111,10 +113,17 @@ de:
       edit: "Der Eintrag wurde erfolgreich aktualisiert"
     info:
       foods_from: "Mahlzeiten vom"
-  reports:
-    invoice:
-      create_info: "Neue Auswertung erstellen"
-      create: "Auswertung anzeigen"
-    cooking:
-      create_info: "Neue Tagesübersicht erstellen"
-      create: "Übersicht anzeigen"
+  invoice:
+    create_info: "Auswertung für den Monat"
+    new_info: "Neue Auswertung erstellen"
+    submit: "Auswertung anzeigen"
+    entry:
+      employee_id: "Identifikatonsnumer Mitarbeiter"
+      employee_firstname: "Vorname"
+      employee_lastname: "Nachname"
+      sum_breakfasts: "Anzahl Frühstücks/Monat"
+      sum_lunches: "Anzahl Mittagessen/Monat"
+      sum_suppers: "Anzahl Abendessen/Monat"
+  cooking:
+    create_info: "Neue Tagesübersicht erstellen"
+    create: "Übersicht anzeigen"

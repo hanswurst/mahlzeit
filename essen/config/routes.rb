@@ -1,15 +1,8 @@
 Essen::Application.routes.draw do
   
-#  get "foods/:id" => "foods#show", :as => :food
-
   get "meal_plans/index_delete" => "meal_plans#index_delete"
-  get "reports/show_monthly_invoice_report" => "reports#show_monthly_invoice_report"
-  get "reports/show_daily_cooking_report" => "reports#show_daily_cooking_report"
-  get "reports/create_monthly_invoice_report" => "reports#create_monthly_invoice_report"
-  get "reports/create_daily_cooking_report" => "reports#create_daily_cooking_report"
-#  get "meal_plans/show"
-#  get "meal_plans/delete"
 
+  resources :invoices
   resources :employees
   resources :meal_plan_entries
   resources :meal_plans

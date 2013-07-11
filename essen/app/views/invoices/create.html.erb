@@ -1,0 +1,22 @@
+<h1><%=t 'invoice.create_info'%> <%= @month%></h1>
+
+<table>
+  <tr>
+    <th><%=t 'invoice.entry.employee_id'%></th>
+    <th><%=t 'invoice.entry.employee_firstname'%></th>
+    <th><%=t 'invoice.entry.employee_lastname'%></th>
+    <th><%=t 'invoice.entry.sum_breakfasts'%></th>
+    <th><%=t 'invoice.entry.sum_lunches'%></th>
+    <th><%=t 'invoice.entry.sum_suppers'%></th>
+  </tr>
+  <% @meal_plan_entries_per_month.each do |entry| %>
+    <tr>
+      <td><%= entry.employee_id %></td>
+      <td><%= entry.firstname %></td>
+      <td><%= entry.lastname %></td>
+      <td><%= entry.sum_breakfasts %></td>
+      <td><%= entry.sum_lunches %></td>
+      <td><%= entry.sum_suppers %></td>
+    </tr>
+  <% end %>
+</table>

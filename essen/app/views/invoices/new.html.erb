@@ -1,0 +1,13 @@
+<h1><%=t 'invoice.new_info' %></h1>
+
+<%= form_for(@invoice) do |f| %>
+  <div>
+    <%= f.label :date %><br />
+    <%= f.date_select(:date, :order => [:month,:year]) %>
+
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit t('invoice.submit') %>
+  </div>
+<% end%>
