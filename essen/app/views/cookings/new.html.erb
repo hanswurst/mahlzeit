@@ -1,0 +1,15 @@
+<h1><%=t 'cooking.new_info' %></h1>
+
+<%= form_for(@cooking) do |f| %>
+  <div>
+    <%= f.label :report_date %>
+    <br><%= radio_button_tag 'report_date', 'today', true %>
+    <%= label :report_date_today, t('misc.today') %>
+    <br><%= radio_button_tag 'report_date', 'tomorrow' %>
+    <%= label :report_date_tomorrow, t('misc.tomorrow') %> 
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit t('cooking.submit') %>
+  </div>
+<% end%>

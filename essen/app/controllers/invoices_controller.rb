@@ -11,7 +11,7 @@ class InvoicesController < ApplicationController
   def create
     start_of_month_date = params["invoice"].map{|k,v| v}.join("-").to_date
     end_of_month_date = start_of_month_date.end_of_month
-    @month = start_of_month_date.strftime("%B") 
+    @month = l(start_of_month_date, :format => "%B")
     @meal_plan_entries_per_month = meal_plan_entries_for_month_per_employee(start_of_month_date, end_of_month_date)
   end
 

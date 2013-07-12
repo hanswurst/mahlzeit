@@ -2,6 +2,7 @@ Essen::Application.routes.draw do
   
   get "meal_plans/index_delete" => "meal_plans#index_delete"
 
+  resources :cookings 
   resources :invoices
   resources :employees
   resources :meal_plan_entries

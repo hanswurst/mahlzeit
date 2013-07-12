@@ -76,8 +76,11 @@ de:
         valid_from: "Gültig von"
         valid_to: "Gültig bis:"
       invoice:
-        date: "Rechnungsmonat"  
+        date: "Rechnungsmonat"
+      cooking:
+        report_date: "Erstelle Übersicht für" 
   misc:
+    adults: "Erwachsene"
     yes: "ja"
     no: "nein"
     to: "bis"
@@ -87,6 +90,8 @@ de:
     back: "Zurück" 
     valid_from: "Gültig ab"
     valid_to: "Gültig bis"
+    today: "heute"
+    tomorrow: "morgen"
     errors:
       info: "Folgede Fehler sind aufgetreten:"
   employee:
@@ -128,5 +133,12 @@ de:
       children_level_2: "Kinder 7-13 Jahre"
       children_level_3: "Kinder 14-17 Jahre"
   cooking:
-    create_info: "Neue Tagesübersicht erstellen"
-    create: "Übersicht anzeigen"
+    create_info: "Anzahl Mahlzeiten am"
+    new_info: "Neue Tagesübersicht erstellen"
+    submit: "Übersicht anzeigen"
+    entry:
+      sum_breakfasts: "Anzahl Frühstücks/Tag"
+      sum_lunches: "Anzahl Mittagessen/Tag"
+      sum_suppers: "Anzahl Abendessen/Tag"
+    info:
+      no_matches: "Keine Treffer gefunden"

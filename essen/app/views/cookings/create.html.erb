@@ -1,0 +1,26 @@
+<h1><%=t 'cooking.create_info'%> <%= l(@date, :format => "%d.%m.%Y" ) %></h1>
+
+<% if @meal_plan_entries_per_day.empty? %>
+  <%=t 'cooking.info.no_matches'%>
+<% else %>
+  <table>
+    <tr>
+      <th></th>
+      <th><%=t 'cooking.entry.sum_breakfasts'%></th>
+      <th><%=t 'cooking.entry.sum_lunches'%></th>
+      <th><%=t 'cooking.entry.sum_suppers'%></th>
+    </tr>
+    <% @meal_plan_entries_per_day.each do |entry| %>
+      <tr>
+        <% if entry.adult? %>
+          <td><%=t 'misc.adults' %></td>
+        <% else %>
+          <td><%= entry.child_age_level_to_s %></td>
+        <% end %>
+        <td><%= entry.sum_breakfasts %></td>
+        <td><%= entry.sum_lunches %></td>
+        <td><%= entry.sum_suppers %></td>
+      </tr>
+    <% end %>
+  </table>
+<%end%>
