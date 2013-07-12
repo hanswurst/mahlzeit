@@ -68,40 +68,48 @@ class MealPlansController < ApplicationController
     @employees = Employee.all.select(&:getsMeals?)
     @employees.each do |employee|
       (@meal_plan.valid_from).upto(@meal_plan.valid_to) { |date|
-        meal_plan_entry = MealPlanEntry.new
-        meal_plan_entry.number_of_breakfasts = number_of_breakfasts(employee, date)
-        meal_plan_entry.number_of_lunches = number_of_lunches(employee, date)
-        meal_plan_entry.number_of_suppers = number_of_suppers(employee, date)
-        meal_plan_entry.date = date
-        meal_plan_entry.employee = employee
-        meal_plan_entry.meal_plan = @meal_plan
-        meal_plan_entry.save
+      create_meal_plan_entry(employee, date, MealPlanEntry.adult_age_type_index, employee.default_number_of_meals_adults) if employee.default_number_of_meals_adults > 0
+      create_meal_plan_entry(employee, date, MealPlanEntry.level_1_age_type_index, employee.number_of_children_level_1) if employee.number_of_children_level_1 > 0
+      create_meal_plan_entry(employee, date, MealPlanEntry.level_2_age_type_index, employee.number_of_children_level_2) if employee.number_of_children_level_2 > 0
+      create_meal_plan_entry(employee, date, MealPlanEntry.level_3_age_type_index, employee.number_of_children_level_3) if employee.number_of_children_level_3 > 0
       }
     end  
   end
 
-  def number_of_breakfasts(employee, date)
+  def number_of_breakfasts(employee, number_of_meals, date)
     if employee.breakfast && is_not_weekend(date) 
-      employee.default_number_of_meals_adults
+      number_of_meals
     else 0
     end
   end
 
-  def number_of_lunches(employee, date)
+  def number_of_lunches(number_of_meals, date)
     if is_not_weekend(date)
-      employee.default_number_of_meals_adults
+      number_of_meals
     else 0
     end
   end
 
-  def number_of_suppers(employee, date)
+  def number_of_suppers(employee, number_of_meals, date)
     if employee.supper && is_not_weekend(date)
-      employee.default_number_of_meals_adults
+      number_of_meals
     else 0
     end
   end
 
   def is_not_weekend(date)
     !date.saturday? && !date.sunday?
+  end
+
+  def create_meal_plan_entry(employee, date, age_type, number_of_meals)
+    meal_plan_entry = MealPlanEntry.new
+    meal_plan_entry.number_of_breakfasts = number_of_breakfasts(employee, number_of_meals, date)
+    meal_plan_entry.number_of_lunches = number_of_lunches(number_of_meals, date)
+    meal_plan_entry.number_of_suppers = number_of_suppers(employee, number_of_meals, date)
+    meal_plan_entry.date = date
+    meal_plan_entry.age_type = age_type
+    meal_plan_entry.employee = employee
+    meal_plan_entry.meal_plan = @meal_plan
+    meal_plan_entry.save
   end
 end

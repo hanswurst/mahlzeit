@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130709184331) do
     t.integer  "number_of_breakfasts"
     t.integer  "number_of_lunches"
     t.integer  "number_of_suppers"
+    t.integer  "age_type"
     t.integer  "meal_plan_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false

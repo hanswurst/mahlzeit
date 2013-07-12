@@ -20,8 +20,9 @@ class InvoicesController < ApplicationController
   def meal_plan_entries_for_month_per_employee(start_date, end_date)
     MealPlanEntry.joins("JOIN employees ON employees.id = employee_id")
                  .where("date >= ? AND date <= ?", start_date, end_date)
-                 .group(:employee_id)
-                 .select('employee_id, firstname, lastname, SUM(number_of_breakfasts) as sum_breakfasts, SUM(number_of_lunches) as sum_lunches, SUM(number_of_suppers) as sum_suppers')
+                 .group(:employee_id, :age_type)
+                 .order(:lastname, :firstname)
+                 .select('employee_id, age_type, firstname, lastname, SUM(number_of_breakfasts) as sum_breakfasts, SUM(number_of_lunches) as sum_lunches, SUM(number_of_suppers) as sum_suppers')
   end
 
 end

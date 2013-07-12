@@ -11,9 +11,15 @@
   </tr>
   <% @meal_plan_entries_per_month.each do |entry| %>
     <tr>
-      <td><%= entry.employee_id %></td>
-      <td><%= entry.firstname %></td>
-      <td><%= entry.lastname %></td>
+      <% if entry.adult? %>
+        <td><%= entry.employee_id %></td>
+        <td><%= entry.firstname %></td>
+        <td><%= entry.lastname %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+        <td><%= entry.child_age_level_to_s %></td>
+      <% end %>
       <td><%= entry.sum_breakfasts %></td>
       <td><%= entry.sum_lunches %></td>
       <td><%= entry.sum_suppers %></td>

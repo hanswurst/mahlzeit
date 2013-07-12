@@ -8,6 +8,7 @@ class CreateMealPlanEntries < ActiveRecord::Migration
       t.integer :number_of_breakfasts
       t.integer :number_of_lunches
       t.integer :number_of_suppers
+      t.integer :age_type
       t.references :meal_plan
 
       t.timestamps
